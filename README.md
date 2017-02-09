@@ -98,6 +98,12 @@ TODO
 * Add full API description
 * Add wiki
 
+squeezenode-mvgrimes
+-----------------------
+This was forked from squeezenode-lordpengwin
+* Adds optional support for https transport
+* Adds support for additional commands: `setPlaylist()`
+
 squeezenode-lordpengwin
 -----------------------
 * Added suppport for HTTP basic auth

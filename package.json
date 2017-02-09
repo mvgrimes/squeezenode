@@ -1,6 +1,6 @@
 {
-    "name": "squeezenode-lordpengwin",
-    "author": "Piotr Raczynski <pio[dot]raczynski[at]gmail[dot]com>",
+    "name": "squeezenode-mvgrimes",
+    "author": "Mark Grimes <mgrimes[at]cpan[dot]org>",
     "version": "0.0.9",
     "description": "Node.js wrapper library for squeezebox CLI/json interface with Spotify/SoundCloud support",
     "main": "server.js",
@@ -21,6 +21,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/piotrraczynski/squeezenode.git"
+        "url": "https://github.com/mvgrimes/squeezenode.git"
     }
 }
