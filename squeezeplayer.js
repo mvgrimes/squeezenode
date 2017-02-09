@@ -109,6 +109,11 @@ function SqueezePlayer(playerId, name, address, port, username, password) {
         this.request(playerId, ["playlist", "index", index], callback);
     };
 
+    this.setPlaylist = function (url, callback) {
+        console.log("url: " + url);
+        this.request(playerId, ["playlist", "play", url], callback);
+    };
+
     this.pause = function (callback) {
         this.request(playerId, ["pause"], callback);
     };
