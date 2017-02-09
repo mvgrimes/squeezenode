@@ -74,11 +74,23 @@ function SqueezeServer(address, port, username, password) {
     };
 
     this.getPlayers = function (callback) {
+      if (typeof callback === 'undefined') { // Promise style
+
+        return self.request(defaultPlayer, ["players", 0, 100])
+          .then( function (reply) {
+                reply.result = reply.result.players_loop;
+                return reply;
+          } );
+
+      } else { // Callback style
+
         self.request(defaultPlayer, ["players", 0, 100], function (reply) {
             if (reply.ok)
                 reply.result = reply.result.players_loop;
             callback(reply);
         });
+
+      }
     };
 
     function register() {

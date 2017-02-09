@@ -62,13 +62,40 @@ function SqueezeRequest(address, port, username, password) {
             callback(result);
     }
 
+    function handleWithPromise(err, reply, resolve, reject) {
+        var result = {};
+        if (err) {
+            result = err;
+            result.ok = false;
+            reject(result);
+        }
+        else {
+            result = reply;
+            result.ok = true;
+            resolve(result);
+        }
+    }
+
     this.request = function (player, params, callback) {
         var finalParams = [];
         finalParams.push(player);
         finalParams.push(params);
-        client.request('slim.request', finalParams, null, function (err, reply) {
-            handle(err, reply, callback);
-        });
+
+        if( typeof callback === 'undefined' ){ // Promise style
+
+          return new Promise( function(resolve, reject) {
+            client.request('slim.request', finalParams, null, function (err, reply) {
+                handleWithPromise(err, reply, resolve, reject);
+            });
+          });
+
+        } else { // Callback style
+
+          client.request('slim.request', finalParams, null, function (err, reply) {
+              handle(err, reply, callback);
+          });
+
+        }
     };
 }
 
