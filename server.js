@@ -50,27 +50,27 @@ function SqueezeServer(address, port, username, password) {
     this.playerUpdateInterval = 2000;
 
     this.getPlayerCount = function (callback) {
-        this.request(defaultPlayer, ["player", "count", "?"], callback);
+        return this.request(defaultPlayer, ["player", "count", "?"], callback);
     };
 
     this.getPlayerId = function (id, callback) {
-        this.request(defaultPlayer, ["player", "id", id, "?"], callback);
+        return this.request(defaultPlayer, ["player", "id", id, "?"], callback);
     };
 
     this.getPlayerIp = function (playerId, callback) {
-        this.request(defaultPlayer, ["player", "ip", playerId, "?"], callback);
+        return this.request(defaultPlayer, ["player", "ip", playerId, "?"], callback);
     };
 
     this.getPlayerName = function (playerId, callback) {
-        this.request(defaultPlayer, ["player", "name", playerId, "?"], callback);
+        return this.request(defaultPlayer, ["player", "name", playerId, "?"], callback);
     };
 
     this.getSyncGroups = function (callback) {
-        this.request(defaultPlayer, ["syncgroups", "?"], callback);
+        return this.request(defaultPlayer, ["syncgroups", "?"], callback);
     };
 
     this.getApps = function (callback) {
-        this.request(defaultPlayer, ["apps", 0, 100], callback);
+        return this.request(defaultPlayer, ["apps", 0, 100], callback);
     };
 
     this.getPlayers = function (callback) {

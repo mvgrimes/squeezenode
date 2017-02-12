@@ -85,7 +85,7 @@ function SqueezeRequest(address, port, username, password) {
 
           return new Promise( function(resolve, reject) {
             client.request('slim.request', finalParams, null, function (err, reply) {
-                handleWithPromise(err, reply, resolve, reject);
+                return handleWithPromise(err, reply, resolve, reject);
             });
           });
 
