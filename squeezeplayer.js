@@ -63,6 +63,21 @@ function SqueezePlayer(playerId, name, address, port, username, password) {
         });
     };
 
+    this.getTitle = function (callback) {
+        if( typeof callback === 'undefined' ){ // Promise style
+          return this.request(playerId, ["title", "?"]).then( function(reply) {
+            reply.result = reply.result._title;
+            return reply;
+          });
+        }
+
+        this.request(playerId, ["title", "?"], function (reply) {
+            if (reply.ok)
+                reply.result = reply.result._title;
+            callback(reply);
+        });
+    };
+
     this.getArtist = function (callback) {
         if( typeof callback === 'undefined' ){ // Promise style
           return this.request(playerId, ["artist", "?"]).then( function (reply) {
