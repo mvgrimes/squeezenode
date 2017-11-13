@@ -115,6 +115,7 @@ function SqueezeServer(address, port, username, password) {
                             var fil = file.substr(0, file.lastIndexOf("."));
                             for (var pl in apps) {
                                 if (fil === apps[pl].cmd) {
+                                    // MVG: this will be a problem for webpack if we use this
                                     var app = require(dir + file);
                                     self.apps[apps[pl].cmd] = new app(defaultPlayer, apps[pl].name, apps[pl].cmd, self.address, self.port, self.username, self.password);
                                     /* workaround, app needs existing player id so first is used here */
